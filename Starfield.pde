@@ -9,6 +9,21 @@ void draw()
 }
 class NormalParticle
 {
+	double myX, myY, mySpeed, myAngle;
+	color myColor;
+
+	NormalParticle(){
+
+	}
+
+	void move(){
+
+	}
+
+	void show(){
+		
+	}
+
 	//your code here
 }
 interface Particle

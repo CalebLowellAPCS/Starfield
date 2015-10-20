@@ -18,10 +18,14 @@ class NormalParticle
 
 	void move(){
 
+		myX = myX + (cos(myAngle)*mySpeed);
+		myY = myY + (sin(myAngle)*mySpeed);
+
 	}
 
 	void show(){
 		
+		myColor = fill(50, 50, 59);
 	}
 
 	//your code here

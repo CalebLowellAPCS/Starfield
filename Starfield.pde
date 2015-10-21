@@ -9,23 +9,28 @@ void draw()
 }
 class NormalParticle
 {
-	double myX, myY, mySpeed, myAngle;
-	color myColor;
+  double dX, dY, dSpeed, dAngle;
+  color dColor;
 
-	NormalParticle(){
+  NormalParticle(double x, double y){
+    
+    dX = x;
+    dY = y;
+    dSpeed = Math.random() * 10;
+    dAngle = (Math.random() * (2 * Math.PI));
 
 	}
 
 	void move(){
-
-		myX = myX + (cos(myAngle)*mySpeed);
-		myY = myY + (sin(myAngle)*mySpeed);
+     
+    dX = dX + (cos((float)(dAngle)) * dSpeed);
+    dY = dY + (sin((float)(dAngle)) * dSpeed);
 
 	}
 
 	void show(){
 		
-		myColor = fill(50, 50, 59);
+      fill(dColor);
 	}
 
 	//your code here
@@ -34,7 +39,7 @@ interface Particle
 {
 	//your code here
 }
-class OddballParticle //uses an interface
+class OddballParticle //uses an terface
 {
 	//your code here
 }
@@ -42,4 +47,3 @@ class JumboParticle //uses inheritance
 {
 	//your code here
 }
-

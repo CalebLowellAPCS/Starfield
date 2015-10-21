@@ -1,10 +1,24 @@
+NormalParticle [] potato;
 //your code here
 void setup()
 {
+	size(512, 512);
+	background(0);
+
 	//your code here
+	potato = new NormalParticle [10];
+	for (int i = 0; i < potato.length; i++){
+		
+		potato[i] = new NormalParticle();
+	}
 }
 void draw()
 {
+	for (int i = 0; i < potato.length; i++){
+
+		potato[i].move();
+		potato[i].show();
+	}
 	//your code here
 }
 class NormalParticle
@@ -18,6 +32,7 @@ class NormalParticle
     dY = y;
     dSpeed = Math.random() * 10;
     dAngle = (Math.random() * (2 * Math.PI));
+    dColor = (255);
 
 	}
 
@@ -30,7 +45,8 @@ class NormalParticle
 
 	void show(){
 		
-      fill(dColor);
+      stroke(dColor);
+      point((int) dX, (int) dY);
 	}
 
 	//your code here

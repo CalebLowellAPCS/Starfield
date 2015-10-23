@@ -22,7 +22,7 @@ void draw()
 	//your code here
 
 }
-class NormalParticle
+class NormalParticle implements Particle
 {
   double dX, dY, dSpeed, dAngle;
   color dColor;
@@ -39,7 +39,7 @@ class NormalParticle
 
 	}
 
-	void move(){
+	public void move(){
 
 		if((dX > 512 || dX < 0) || (dY > 512 || dY < 0)){
 
@@ -54,7 +54,7 @@ class NormalParticle
     dY = dY + (sin((float)(dAngle)) * dSpeed);
 
 	}
-	void show(){
+	public void show(){
 		
       stroke(dColor);
       strokeWeight(2);
@@ -65,6 +65,8 @@ class NormalParticle
 }
 interface Particle
 {
+	public void show();
+	public void move();
 	//your code here
 }
 class OddballParticle //uses an terface

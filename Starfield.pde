@@ -1,14 +1,15 @@
-NormalParticle [] potato;
+Particle [] potato;
 //your code here
 void setup()
 {
 	size(512, 512);
 
 	//your code here
-	potato = new NormalParticle [1000];
+	potato = new Particle [1000];
 	for (int i = 0; i < potato.length; i++){
 		
 		potato[i] = new NormalParticle();
+		potato[0] = new OddballParticle();
 	}
 }
 void draw()
@@ -18,10 +19,19 @@ void draw()
 
 		potato[i].move();
 		potato[i].show();
+		potato[0].move();
+		potato[0].show();
 	}
 	//your code here
 
 }
+interface Particle
+{
+	public void show();
+	public void move();
+	//your code here
+}
+
 class NormalParticle implements Particle
 {
   double dX, dY, dSpeed, dAngle;
@@ -34,8 +44,6 @@ class NormalParticle implements Particle
     dSpeed = (Math.random() * 7) + 1;
     dAngle = (Math.random() * (2 * Math.PI));
     dColor = (255);
-
-
 
 	}
 
@@ -63,17 +71,58 @@ class NormalParticle implements Particle
 
 	//your code here
 }
-interface Particle
+
+class OddballParticle implements Particle //uses an terface
 {
-	public void show();
-	public void move();
+	double cX, cY, cSpeed, cAngle;
+  	color cColor;
+	OddballParticle(){
+
+    cX = 256;
+    cY = 256;
+    cSpeed = (Math.random() * 7) + 1;
+    cAngle = (Math.random() * (2 * Math.PI));
+    cColor = color(255, 0, 0);
+
+	}
+
+	public void move(){
+
+		if((cX > 512 || cX < 0) || (cY > 512 || cY < 0)){
+
+	    	cX = 256;
+	    	cY = 256;
+		    cSpeed = (Math.random() * 7) + 1;
+		    cAngle = (Math.random() * (2 * Math.PI));
+
+	    }
+    
+    	cX = cX + (cos((float)(cAngle)) * cSpeed);
+    	cY = cY + (sin((float)(cAngle)) * cSpeed);
+
+	}
+
+	public void show(){
+
+      stroke(cColor);
+      strokeWeight(5);
+      point((int) cX, (int) cY);
+
+	}
 	//your code here
 }
-class OddballParticle //uses an terface
+class JumboParticle implements Particle //uses inheritance
 {
-	//your code here
-}
-class JumboParticle //uses inheritance
-{
+	JumboParticle(){
+
+	}
+
+	public void move(){
+
+	}
+
+	public void show(){
+		
+	}
 	//your code here
 }

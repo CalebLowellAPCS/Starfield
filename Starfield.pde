@@ -10,6 +10,7 @@ void setup()
 		
 		potato[i] = new NormalParticle();
 		potato[0] = new OddballParticle();
+          potato[1] = new JumboParticle();
 	}
 }
 void draw()
@@ -19,17 +20,11 @@ void draw()
 
 		potato[i].move();
 		potato[i].show();
-		potato[0].move();
-		potato[0].show();
+          potato[0].move();
+          potato[0].show();
 	}
 	//your code here
 
-}
-interface Particle
-{
-	public void show();
-	public void move();
-	//your code here
 }
 
 class NormalParticle implements Particle
@@ -72,6 +67,13 @@ class NormalParticle implements Particle
 	//your code here
 }
 
+interface Particle
+{
+  public void show();
+  public void move();
+  //your code here
+}
+
 class OddballParticle implements Particle //uses an terface
 {
 	double cX, cY, cSpeed, cAngle;
@@ -111,18 +113,13 @@ class OddballParticle implements Particle //uses an terface
 	}
 	//your code here
 }
-class JumboParticle implements Particle //uses inheritance
+class JumboParticle extends NormalParticle //uses inheritance
 {
-	JumboParticle(){
-
-	}
-
-	public void move(){
-
-	}
-
-	public void show(){
-		
+	public void show()
+{
+     stroke(dColor);
+     strokeWeight(25);
+     point((int) dX, (int) dY);
 	}
 	//your code here
 }
